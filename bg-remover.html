@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGREMOVER Pro - Remove Image Backgrounds Instantly & 100% Free</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bg-remover-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">BG</span>
+                <span class="logo-text">REMOVER Pro</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="hero-title">Remove Image Backgrounds Instantly & <span class="highlight">100% Free</span></h1>
+            <p class="hero-subtitle">Professional background removal in seconds. No sign-up required.</p>
+            <div class="hero-cta">
+                <a href="#upload" class="btn-primary">Get Started Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="upload-section" id="upload">
+        <div class="container">
+            <div class="upload-card">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="upload-title">Drop your image here</h3>
+                    <p class="upload-text">or click to browse</p>
+                    <p class="upload-formats">Supports: PNG, JPG (Max 10MB)</p>
+                    <input type="file" id="fileInput" accept="image/png, image/jpeg, image/jpg" hidden>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processing Section -->
+    <section class="processing-section" id="processingSection" style="display: none;">
+        <div class="container">
+            <div class="processing-card">
+                <div class="spinner"></div>
+                <h3 class="processing-title">Processing your image...</h3>
+                <p class="processing-text">Removing background with AI magic ✨</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Result Section -->
+    <section class="result-section" id="resultSection" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Your Result</h2>
+            <div class="result-grid">
+                <div class="result-card">
+                    <h3 class="result-card-title">Original</h3>
+                    <div class="image-container">
+                        <img id="originalImage" src="" alt="Original Image">
+                    </div>
+                </div>
+                <div class="result-card">
+                    <h3 class="result-card-title">Background Removed</h3>
+                    <div class="image-container checkerboard">
+                        <canvas id="processedCanvas"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="result-actions">
+                <button class="btn-primary" id="downloadBtn">Download Processed Image</button>
+                <button class="btn-secondary" id="newImageBtn">Process Another Image</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose BGREMOVER Pro?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">High-Quality Results</h3>
+                    <p class="feature-text">Professional-grade background removal with pixel-perfect precision and edge detection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">No Sign-up Required</h3>
+                    <p class="feature-text">Start removing backgrounds immediately. No account creation, no email verification needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-text">Process images in seconds with our optimized algorithm. No waiting, instant results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M2 12h20"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Free Forever</h3>
+                    <p class="feature-text">100% free with no hidden costs. Unlimited background removals, no credit card required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple Pricing</h2>
+            <div class="pricing-card">
+                <div class="pricing-badge">Most Popular</div>
+                <h3 class="pricing-title">Free Plan</h3>
+                <div class="pricing-price">
+                    <span class="price-amount">$0</span>
+                    <span class="price-period">/forever</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Unlimited background removals</li>
+                    <li>High-quality results</li>
+                    <li>No watermarks</li>
+                    <li>Instant processing</li>
+                    <li>No sign-up required</li>
+                </ul>
+                <a href="#upload" class="btn-primary">Start Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon">BG</span>
+                    <span class="logo-text">REMOVER Pro</span>
+                </div>
+                <p class="footer-text">&copy; 2025 BGREMOVER Pro. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <span class="footer-separator">|</span>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="bg-remover-script.js"></script>
+</body>
+</html>
