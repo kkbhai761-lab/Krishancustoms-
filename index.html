@@ -3,756 +3,416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishan Custom Water Bottle Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>BGREMOVER Pro - Remove Image Backgrounds Instantly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-/* BASE STYLES & COLORS (Video Look) */
-:root {
-    --dark-bg: #0A0D1B; /* Deep Navy Blue */
-    --card-bg: #1B1E32; /* Slightly Lighter for cards */
-    --accent-yellow: #FFC000; /* Bright Yellow/Orange for logo/highlight */
-    --accent-blue-start: #007bff;
-    --accent-blue-end: #00c9ff;
-    --text-light: #ffffff;
-    --text-secondary: #aaaaaa;
-    --padding-section: 60px 20px;
-    
-    /* 🎨 Krishan Customs के लिए कलर वेरिएबल */
-    --logo-color-1: #3498db; /* Blue for Krishan */
-    --logo-color-2: #e74c3c; /* Red for Customs */
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    /* **बैकग्राउंड चेंज यहाँ शुरू होता है** */
-    /* गहरा नीला बैकग्राउंड */
-    background: linear-gradient(to bottom, #00004d, #00001a); 
-    color: var(--text-light);
-    line-height: 1.6;
-    overflow-x: hidden; /* horizontal scroll रोकने के लिए */
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-light);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 🧊 फ्लोटिंग आइस क्यूब्स CSS 🧊 */
-
-/* क्यूब्स के कंटेनर को फुल-स्क्रीन पर सेट करना */
-.cubes-container {
-    position: fixed; /* इसे फिक्स किया ताकि यह स्क्रॉल न हो */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; 
-    z-index: -1; /* कंटेंट के पीछे रखने के लिए */
-}
-
-/* एक क्यूब के लिए सामान्य स्टाइलिंग */
-.cube {
-    position: absolute;
-    bottom: -100px; 
-    width: 50px;
-    height: 50px;
-    /* पूरी तरह से सफेद पृष्ठभूमि (Opacity 0.8) */
-    background-color: rgba(255, 255, 255, 0.8); 
-    border-radius: 8px; 
-    /* अत्यधिक चमकदार प्रभाव के लिए Box-Shadow को बढ़ाया गया */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 1), /* तेज़ सफेद चमक */
-                0 0 40px rgba(173, 216, 230, 0.7); /* ज़्यादा नीली आभा */
-    animation: floatUp linear infinite;
-}
-
-/* एनीमेशन (Animation) की परिभाषा */
-@keyframes floatUp {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.9; /* शुरुआत में लगभग पूरा अपारदर्शी */
-    }
-    100% {
-        transform: translateY(-100vh) rotate(360deg); 
-        opacity: 0; /* ऊपर जाकर गायब हो जाना */
-    }
-}
-
-/* अलग-अलग क्यूब्स के लिए साइज़, देरी और अवधि */
-.cube:nth-child(1) { left: 10%; width: 55px; height: 55px; animation-duration: 15s; animation-delay: 0s; }
-.cube:nth-child(2) { left: 20%; width: 35px; height: 35px; animation-duration: 20s; animation-delay: 2s; }
-.cube:nth-child(3) { left: 35%; width: 75px; height: 75px; animation-duration: 18s; animation-delay: 4s; }
-.cube:nth-child(4) { left: 50%; width: 45px; height: 45px; animation-duration: 16s; animation-delay: 6s; }
-.cube:nth-child(5) { left: 65%; width: 65px; height: 65px; animation-duration: 22s; animation-delay: 8s; }
-.cube:nth-child(6) { left: 80%; width: 30px; height: 30px; animation-duration: 14s; animation-delay: 10s; }
-.cube:nth-child(7) { left: 5%; width: 40px; height: 40px; animation-duration: 17s; animation-delay: 1s; }
-.cube:nth-child(8) { left: 90%; width: 50px; height: 50px; animation-duration: 19s; animation-delay: 3s; }
-.cube:nth-child(9) { left: 25%; width: 60px; height: 60px; animation-duration: 21s; animation-delay: 5s; }
-.cube:nth-child(10) { left: 70%; width: 30px; height: 30px; animation-duration: 13s; animation-delay: 7s; }
-
-/* ---------------------------------- */
-
-
-/* HEADER / NAVBAR */
-header {
-    background-color: var(--dark-bg);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-}
-
-/* --- नया लोगो इमेज स्टाइलिंग --- */
-.logo img {
-    height: 40px; /* Logo size */
-    width: 40px;
-    object-fit: contain;
-    margin-right: 10px;
-}
-/* -------------------------------- */
-
-
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 800; /* Extra bold */
-    letter-spacing: 1px;
-}
-
-/* 🎨 Krishan Customs को कलरफुल बनाने के लिए CSS */
-.logo-text span:first-child {
-    /* 'Krishan' के लिए रंग */
-    color: var(--logo-color-1); 
-    font-style: normal;
-}
-
-.logo-text span:last-child {
-    /* 'Customs' के लिए रंग */
-    color: var(--logo-color-2);
-    font-style: normal;
-}
-/* अंत कलरफुल लोगो CSS */
-
-
-.menu-toggle {
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-nav {
-    display: none; /* Hide by default for mobile */
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #111424; 
-    width: 250px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    padding: 10px 0;
-}
-
-nav.open {
-    display: block;
-}
-
-nav a {
-    display: flex; 
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s;
-}
-
-nav a i {
-    margin-right: 10px;
-    color: var(--accent-yellow);
-}
-
-nav a:hover {
-    background-color: var(--card-bg);
-}
-
-/* BUTTON STYLE (GRADIENT - CTA) */
-.btn-gradient {
-    background: linear-gradient(90deg, var(--accent-blue-start) 0%, var(--accent-blue-end) 100%);
-    color: var(--text-light);
-    padding: 15px 30px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 15px rgba(0, 201, 255, 0.4);
-    display: inline-block;
-}
-
-.btn-gradient:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 201, 255, 0.6);
-}
-
-/* CTA SECTION STYLE */
-.cta-section {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: var(--card-bg);
-    border-top: 5px solid var(--accent-yellow);
-}
-
-.cta-section .btn-gradient {
-    font-size: 1.2rem;
-    padding: 20px 40px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 350px;
-}
-
-.cta-section .btn-gradient i {
-    margin-right: 10px;
-    font-size: 1.5rem;
-}
-
-/* HERO SECTION */
-.hero {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.2;
-}
-
-.hero h1 span {
-    color: var(--accent-yellow);
-}
-
-.hero-subtitle {
-    color: var(--accent-yellow); 
-    font-weight: 600; 
-    margin-top: 10px;
-}
-
-.hero p {
-    color: var(--text-secondary);
-    margin: 20px 0 40px;
-    font-size: 1.1rem;
-}
-
-.hero-image { 
-    width: 100%;
-    max-width: 350px; 
-    height: auto;
-    margin: 40px auto 0;
-    display: block;
-    border-radius: 15px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
-}
-
-/* SECTION STYLING */
-section {
-    padding: var(--padding-section);
-}
-
-.section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/* 🎨 Accent Text (Section Title) को भी कलरफुल बनाने के लिए CSS */
-.accent-text {
-    display: inline-block;
-}
-.accent-text::first-letter {
-     color: var(--logo-color-1); /* 'K' को नीला */
-}
-.accent-text span {
-     color: var(--logo-color-2); /* 'Customs' को लाल */
-}
-/* अंत Accent Text CSS */
-
-
-.subtitle {
-    text-align: center; 
-    margin-bottom: 30px; 
-    color: var(--text-secondary);
-}
-
-/* CARD STYLES */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background-color: var(--card-bg);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 1px solid transparent; 
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--accent-blue-end);
-}
-
-.card i {
-    font-size: 2.5rem;
-    color: var(--accent-blue-end);
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(0, 201, 255, 0.5);
-}
-
-.card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-/* PRODUCT LISTING (Bottle Sizes) */
-.product-card {
-    background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.product-card img {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover; 
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.product-card h4 {
-    font-size: 1.4rem;
-    font-weight: 600;
-}
-
-.product-card .price {
-    font-size: 1.5rem;
-    color: var(--accent-yellow);
-    font-weight: 700;
-    margin: 10px 0;
-    display: block;
-}
-
-.product-card .qty {
-    display: block;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.product-card .btn-gradient {
-    padding: 10px 20px;
-    width: 100%;
-}
-
-/* DESIGNING PROCESS SECTION */
-.process-step {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-    background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.process-step .icon-box {
-    min-width: 50px;
-    height: 50px;
-    background-color: rgba(0, 201, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.process-step .icon-box i {
-    font-size: 1.5rem;
-    color: var(--accent-blue-end);
-    text-shadow: none;
-}
-
-/* Custom icon box colors for process steps */
-.process-step .yellow-icon-box {
-    background-color: rgba(255, 192, 0, 0.1);
-}
-.process-step .yellow-icon-box i {
-    color: var(--accent-yellow);
-}
-
-.process-step .green-icon-box {
-    background-color: rgba(50, 205, 50, 0.1);
-}
-.process-step .green-icon-box i {
-    color: lightgreen;
-}
-
-.process-step .tomato-icon-box {
-    background-color: rgba(255, 99, 71, 0.1);
-}
-.process-step .tomato-icon-box i {
-    color: tomato;
-}
-/* End Custom icon box colors */
-
-.process-step h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.process-step p {
-    font-size: 0.9rem;
-}
-
-/* FOOTER / FIND US */
-footer {
-    background-color: #111424;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 20px auto;
-    max-width: 300px;
-}
-
-.contact-links a {
-    padding: 10px;
-    border-radius: 8px;
-    background-color: var(--dark-bg);
-    border: 1px solid var(--text-secondary);
-    transition: background-color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.contact-links a:hover {
-    background-color: var(--card-bg);
-    border-color: var(--accent-blue-end);
-}
-
-.contact-links a i {
-    margin-right: 10px;
-    color: var(--accent-yellow);
-}
-
-.contact-info .footer-location-title {
-    margin-top: 20px;
-    font-weight: 700;
-    color: var(--text-light);
-}
-
-.contact-info p {
-    color: var(--text-secondary);
-    margin-top: 5px;
-}
-
-.map-container {
-    margin-top: 20px;
-    height: 300px;
-    background-color: #2a2e41; /* Placeholder for map */
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.map-container p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--text-light);
-    font-weight: 600;
-    width: 80%;
-}
-
-/* Media Query for Desktop/Tablet */
-@media (min-width: 768px) {
-    nav {
-        position: static;
-        display: flex;
-        background-color: transparent;
-        width: auto;
-        box-shadow: none;
-        padding: 0;
-    }
-
-    nav a {
-        padding: 10px 15px;
-        border-bottom: none;
-        border-radius: 5px;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-    
-    .process-step {
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #000;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFC700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFC700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #333 0%, #666 100%);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .upload-card {
+            background-color: #f9f9f9;
+            border: 2px dashed #ccc;
+            border-radius: 15px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: border-color 0.3s;
+        }
+
+        .upload-card:hover {
+            border-color: #FFC700;
+        }
+
+        .upload-card input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            background-color: #FFC700;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .upload-btn:hover {
+            background-color: #e6b800;
+        }
+
+        .upload-text {
+            margin: 20px 0;
+            color: #666;
+        }
+
+        /* Before/After View */
+        .before-after {
+            padding: 60px 0;
+            background-color: #f5f5f5;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .image-box {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .image-box h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Download Button */
+        .download-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .download-btn {
+            background-color: #FFC700;
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: none;
+        }
+
+        .download-btn:hover {
+            background-color: #e6b800;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: #FFC700;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #FFC700;
+            text-decoration: none;
+        }
+
+        /* Processing Message */
+        .processing {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #FFC700;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                margin-top: 20px;
+            }
+
+            nav ul li {
+                margin-left: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
-       </head>
+</head>
 <body>
-    
-    <div class="cubes-container">
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-    </div>
-    
     <header>
-        <div class="logo">
-            <img src='https://i.postimg.cc/cKH9FzR8/1762659463763.png' alt='Krishan Customs Logo'>
-            <span class="logo-text"><span>Krishan</span> Customs</span>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">BGREMOVER Pro</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <nav id="mainNav">
-            <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="#designs"><i class="fa-solid fa-palette"></i> Designs</a>
-            <a href="#services"><i class="fa-solid fa-gear"></i> Services</a>
-            <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
-        </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="container">
-            <h1>You Bring The Idea, We'll Bring The <span style="font-style: italic;">Creativity.</span></h1>
-            <p class="hero-subtitle">You Dream It. We Customise It.</p>
-            <p>Elevate your brand with our premium custom water bottle solutions. Perfect for events, corporate gifting, weddings, and everyday use.</p>
-            
-            <a href="https://wa.me/9584994623?text=I%20want%20to%20start%20customising%20my%20bottle%20with%20Krishan%20Customs." target="_blank" class="btn-gradient">
-                <i class="fa-brands fa-whatsapp"></i> Start Customisation
-            </a>
-
-            <img src="https://i.postimg.cc/cKH9FzR8/1762659463763.png" alt="Krishan Custom Water Bottle Mockup" class="hero-image">
+            <h1>Remove Image Backgrounds Instantly & 100% Free</h1>
+            <p>Upload your image and get a professional background removal in seconds. No sign-up required!</p>
         </div>
     </section>
 
-    <section id="services">
+    <section class="upload-section">
         <div class="container">
-            <h2 class="section-title">Why Choose <span class="accent-text">Krishan Customs</span></h2>
-            <div class="card-grid">
-                <div class="card">
-                    <i class="fa-solid fa-star"></i>
-                    <h3>Premium Quality</h3>
-                    <p>High-grade materials with strict quality control for safe, clean water.</p>
+            <div class="upload-card">
+                <input type="file" id="imageUpload" accept=".png,.jpg,.jpeg">
+                <label for="imageUpload" class="upload-btn">Choose Image</label>
+                <p class="upload-text">or drag and drop PNG or JPG files here</p>
+            </div>
+            <div class="processing" id="processing">Processing... Background removal in progress</div>
+        </div>
+    </section>
+
+    <section class="before-after">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #333;">Before & After</h2>
+            <div class="image-container">
+                <div class="image-box">
+                    <h3>Original Image</h3>
+                    <img id="originalImage" src="" alt="Original" style="display: none;">
+                    <p id="originalPlaceholder">Upload an image to see the original</p>
                 </div>
-                <div class="card">
-                    <i class="fa-solid fa-paint-roller"></i>
-                    <h3>Custom Designs</h3>
-                    <p>Tailored bottle designs that perfectly match your brand identity.</p>
+                <div class="image-box">
+                    <h3>Processed Image</h3>
+                    <img id="processedImage" src="" alt="Processed" style="display: none;">
+                    <p id="processedPlaceholder">Background removed image will appear here</p>
                 </div>
-                <div class="card">
-                    <i class="fa-solid fa-truck"></i>
-                    <h3>Fast Delivery</h3>
-                    <p>Reliable and timely delivery to ensure your events run smoothly.</p>
-                </div>
+            </div>
+            <div class="download-section">
+                <button class="download-btn" id="downloadBtn">Download Processed Image</button>
             </div>
         </div>
     </section>
 
-    <section id="designs">
+    <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Our Bottle Sizes</h2>
-            <p class="subtitle">Choose the perfect size for your needs</p>
-            
-            <div class="card-grid">
-                <div class="product-card">
-                    <img src="https://i.postimg.cc/qtssJVnp/1762493107529.png" alt="1L Bottle Mockup">
-                    <h4>1L Bottle</h4>
-                    <p>Great for outdoor activities and sports. Large capacity for extended use.</p>
-                    <span class="price">₹169.00</span>
-                    <span class="qty">12 pcs/Box</span>
-                    <a href="https://wa.me/9584994623?text=I%27m%20interested%20in%201L%20bottles" target="_blank" class="btn-gradient">Customize Now</a>
+            <h2>Why Choose BGREMOVER Pro?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>High-Quality Results</h3>
+                    <p>Advanced AI-powered background removal for professional-quality images.</p>
                 </div>
-
-                <div class="product-card">
-                    <img src="https://i.postimg.cc/7GP2qCw9/1762492291593.png" alt="500ml Bottle Mockup">
-                    <h4>500ml Bottle</h4>
-                    <p>Ideal for daily use and offices. Balanced size for regular hydration needs.</p>
-                    <span class="price">₹239.00</span>
-                    <span class="qty">20 pcs/Box</span>
-                    <a href="https://wa.me/9584994623?text=I%27m%20interested%20in%20500ml%20bottles" target="_blank" class="btn-gradient">Customize Now</a>
+                <div class="feature-card">
+                    <h3>No Sign-up Required</h3>
+                    <p>Start removing backgrounds immediately without creating an account.</p>
                 </div>
-
-                <div class="product-card">
-                    <img src="https://i.postimg.cc/HcPVHB6N/1762492483958.png" alt="250ml Bottle Mockup">
-                    <h4>250ml Bottle</h4>
-                    <p>Perfect for events and personal use. Compact size with maximum hydration.</p>
-                    <span class="price">₹269.00</span>
-                    <span class="qty">30 pcs/Box</span>
-                    <a href="https://wa.me/9584994623?text=I%27m%20interested%20in%20250ml%20bottles" target="_blank" class="btn-gradient">Customize Now</a>
+                <div class="feature-card">
+                    <h3>Free Forever</h3>
+                    <p>Unlimited background removals at no cost. No hidden fees or subscriptions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Fast Processing</h3>
+                    <p>Get your images processed in seconds with our optimized technology.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section class="cta-section">
+
+    <section class="hero" id="pricing" style="background: linear-gradient(135deg, #222 0%, #444 100%);">
         <div class="container">
-            <a href="https://wa.me/9584994623?text=I%20want%20to%20start%20customising%20my%20bottle%20with%20Krishan%20Customs." target="_blank" class="btn-gradient">
-                <i class="fa-brands fa-whatsapp"></i> Start Customisation
-            </a>
+            <h1>Pricing</h1>
+            <p>Free</p>
         </div>
     </section>
-    <section>
+
+    <footer>
         <div class="container">
-            <h2 class="section-title">Designing Process</h2>
-
-            <div class="process-step">
-                <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
-                <div>
-                    <h3>Brand Understanding</h3>
-                    <p>We begin by understanding your brand, event type, and audience to align the design with your identity.</p>
-                </div>
-            </div>
-
-            <div class="process-step">
-                <div class="icon-box yellow-icon-box"><i class="fa-solid fa-paintbrush"></i></div>
-                <div>
-                    <h3>Design Customisation</h3>
-                    <p>Choose bottle size, label style, logo, colours, and fonts—tailored to match your brand perfectly.</p>
-                </div>
-            </div>
-
-            <div class="process-step">
-                <div class="icon-box green-icon-box"><i class="fa-solid fa-circle-check"></i></div>
-                <div>
-                    <h3>Sample Review & Approval</h3>
-                    <p>Get a digital preview of the label. Approve or request changes before we move to production.</p>
-                </div>
-            </div>
-            
-            <div class="process-step">
-                <div class="icon-box tomato-icon-box"><i class="fa-solid fa-cogs"></i></div>
-                <div>
-                    <h3>Quality Production</h3>
-                    <p>Your bottles are produced using high-quality, food-grade materials with strict quality checks.</p>
-                </div>
-            </div>
-            
-            <div class="process-step">
-                <div class="icon-box"><i class="fa-solid fa-headset"></i></div>
-                <div>
-                    <h3>After-Support</h3>
-                    <p>Easily reorder or update designs. We offer quick assistance and save your past preferences.</p>
-                </div>
-            </div>
+            <p>&copy; 2025 BGREMOVER Pro. All rights reserved.</p>
+            <p><a href="#">Terms of Service</a></p>
         </div>
-    </section>
-        <footer id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact & Location</h2>
-            
-            <div class="contact-links">
-                <a href="tel:+919584994623">
-                    <i class="fa-solid fa-phone"></i> +91 9584994623 (Call Now)
-                </a>
-                <a href="mailto:krishanlodhi47@gmail.com">
-                          <i class="fa-solid fa-envelope"></i> *krishanlodhi47@gmail.com*
-                </a>
-            </div>
-            
-            <div class="contact-info">
-                <p class="footer-location-title">**Location:**</p>
-                <p> (Madhya Pradesh ) shivpuri khaniyadhana 
-                       chamruaa Naka 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // 'menuToggle' ID हैमबर्गर आइकन (तीन लाइन) का है।
-        const menuToggle = document.getElementById('menuToggle');
-        // 'mainNav' ID मेनू लिस्ट (Home, Designs, Services, Contact) का है।
-        const mainNav = document.getElementById('mainNav');
-        // सभी लिंक्स को सेलेक्ट करना ताकि क्लिक करने पर मेनू बंद हो जाए।
-        const navLinks = mainNav.querySelectorAll('a');
+    </footer>
 
-        // जब हैमबर्गर आइकन पर क्लिक किया जाता है
-        menuToggle.addEventListener('click', function () {
-            // 'open' क्लास को जोड़ता या हटाता है, जिससे CSS मेनू को दिखाता है
-            mainNav.classList.toggle('open');
+    <script>
+        const imageUpload = document.getElementById('imageUpload');
+        const originalImage = document.getElementById('originalImage');
+        const processedImage = document.getElementById('processedImage');
+        const originalPlaceholder = document.getElementById('originalPlaceholder');
+        const processedPlaceholder = document.getElementById('processedPlaceholder');
+        const processing = document.getElementById('processing');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        imageUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg')) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    originalImage.src = event.target.result;
+                    originalImage.style.display = 'block';
+                    originalPlaceholder.style.display = 'none';
+
+                    // Show processing message
+                    processing.style.display = 'block';
+
+                    // Simulate processing delay
+                    setTimeout(() => {
+                        processing.style.display = 'none';
+
+                        // Show processed image (placeholder - in real app, this would be the processed image)
+                        processedImage.src = event.target.result; // Using same image as placeholder
+                        processedImage.style.display = 'block';
+                        processedPlaceholder.style.display = 'none';
+
+                        // Show download button
+                        downloadBtn.style.display = 'inline-block';
+                    }, 2500); // 2.5 seconds delay
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select a PNG or JPG file.');
+            }
         });
 
-        // जब किसी मेनू लिंक (Home, Designs, आदि) पर क्लिक किया जाता है
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                // छोटे स्क्रीन पर, लिंक पर क्लिक करने के बाद मेनू को बंद कर दें।
-                if (window.innerWidth < 768) {
-                    mainNav.classList.remove('open');
-                }
-                
-                // स्मूथ स्क्रॉलिंग के लिए (यदि ब्राउज़र सपोर्ट करता है)
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+        downloadBtn.addEventListener('click', function() {
+            // Mock download - in real implementation, this would download the processed image
+            alert('Download functionality would be implemented here. In this mock version, the processed image is ready!');
         });
-    });
-</script>
+    </script>
+</body>
+</html>
